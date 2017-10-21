@@ -36,8 +36,6 @@ export class MyApp {
 			{ title: 'Resources', component: ResourcesPage }
 		];
 
-		this.commonProvider.loadData();
-
 	}
 
 	initializeApp() {
@@ -51,7 +49,12 @@ export class MyApp {
 
 			this.nav.setRoot(HomePage, {pages: this.pages});
 
-			this.splashScreen.hide();
+			this.commonProvider.loadData().subscribe(
+				data => {
+					this.commonProvider.setData(data);
+					this.splashScreen.hide();
+				}
+			);
 
 		});
 	}

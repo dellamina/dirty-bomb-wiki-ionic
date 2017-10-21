@@ -183,19 +183,18 @@ export class CommonProvider {
 	loadData() {
 		return this.http.get(`https://dirty-bomb-wiki.firebaseio.com/.json`)
 			.map((res: any) => res)
-			.catch(this.handleError)
-			.subscribe(
-				data => {
-					this.loadouts = data.loadouts;
-					this.mercs = data.mercs;
-					this.perks = data.perks;
-					this.weapons = data.weapons;
-					this.resources = data.resources;
-					this.ranks = data.ranks;
-					this.news = data.news;
-					this.rip = data.rip;
-				}
-			);
+			.catch(this.handleError);
+	}
+
+	setData(data: any) {
+		this.loadouts = data.loadouts;
+		this.mercs = data.mercs;
+		this.perks = data.perks;
+		this.weapons = data.weapons;
+		this.resources = data.resources;
+		this.ranks = data.ranks;
+		this.news = data.news;
+		this.rip = data.rip;
 	}
 
 	handleError(error: any) {

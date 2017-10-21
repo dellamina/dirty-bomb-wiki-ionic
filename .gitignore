@@ -39,6 +39,9 @@ cloud_functions/
 gh_pages/
 immagini varie/
 resources/icone_varie/
+sign_apk/
+
+commit.md
 
 build.bat
 resources.bat
