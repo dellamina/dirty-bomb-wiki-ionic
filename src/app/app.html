@@ -1,0 +1,20 @@
+<ion-menu [content]="content">
+	<ion-content>
+		<img-loader useImg class="header-img" src="img/backgrounds/side-menu.jpg"></img-loader>
+		<ion-list>
+			<button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+				{{ p.title }}
+				<ion-badge item-end *ngIf="p.rip">RIP</ion-badge>
+			</button>
+		</ion-list>
+	</ion-content>
+	<ion-footer>
+		<ion-toolbar padding>
+			<a class="pointer" (click)="openUrl('https://github.com/dellamina');">
+				I'm on <ion-icon name="logo-github"></ion-icon> Github!
+			</a>
+		</ion-toolbar>
+	</ion-footer>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

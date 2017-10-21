@@ -1,0 +1,22 @@
+<ion-header>
+	<ion-navbar color="primary">
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Mercs</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-searchbar (ionInput)="doFilter($event)"></ion-searchbar>
+	<ion-card>
+		<ion-item-group *ngFor="let category of categories">
+			<ion-item-divider color="light">{{ category }}</ion-item-divider>
+			<ng-container *ngFor="let merc of mercs;">
+				<button ion-item *ngIf="merc.category == category" (click)="showDetail(merc)">
+					{{ merc.name }}
+					<ion-icon name="arrow-forward" item-end></ion-icon>
+				</button>
+			</ng-container>
+		</ion-item-group>
+	</ion-card>
+</ion-content>

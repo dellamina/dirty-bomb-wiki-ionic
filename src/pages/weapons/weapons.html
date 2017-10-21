@@ -1,0 +1,22 @@
+<ion-header>
+	<ion-navbar color="primary">
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Weapons</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-searchbar (ionInput)="doFilter($event)"></ion-searchbar>
+	<ion-card>
+		<ion-item-group *ngFor="let category of categories">
+			<ion-item-divider color="light">{{ category }}</ion-item-divider>
+			<ng-container *ngFor="let weapon of weapons;">
+				<ion-item *ngIf="weapon.category == category" text-center>
+					<img-loader useImg src="img/weapons/{{ weapon.code }}.png"></img-loader>
+					{{ weapon.name }}
+				</ion-item>
+			</ng-container>
+		</ion-item-group>
+	</ion-card>
+</ion-content>

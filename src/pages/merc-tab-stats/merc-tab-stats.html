@@ -1,0 +1,28 @@
+<ion-content>
+	<div style="height: 60%; overflow: hidden;">
+		<img-loader useImg class="merc-img" src="img/mercs/{{ merc.code }}.jpg"></img-loader>
+	</div>
+	<ion-list>
+		<ion-item>
+			<ion-icon name='options' item-start></ion-icon>
+			Category:
+			<ion-note item-end>
+				{{ merc.category }}
+			</ion-note>
+		</ion-item>
+		<ion-item>
+			<ion-icon name='medkit' item-start></ion-icon>
+			Health:
+			<ion-note item-end>
+				{{ merc.health }}
+			</ion-note>
+		</ion-item>
+		<ion-item>
+			<ion-icon name='speedometer' item-start></ion-icon>
+			Speed:
+			<ion-note item-end>
+				{{ merc.speed }}
+			</ion-note>
+		</ion-item>
+	</ion-list>
+</ion-content>

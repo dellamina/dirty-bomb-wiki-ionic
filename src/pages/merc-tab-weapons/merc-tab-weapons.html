@@ -1,0 +1,36 @@
+<ion-content>
+	<ng-container [ngSwitch]="category">
+		<ion-segment [(ngModel)]="category" color="dark" style="padding-top: 4px;">
+			<ion-segment-button *ngFor="let category of categories" [value]="category">
+				{{ capitalizeFirstLetter( category ) }}
+			</ion-segment-button>
+		</ion-segment>
+
+		<ng-container *ngSwitchCase="'primary'">
+			<ion-card *ngFor="let weapon of weapons.primary">
+				<ion-card-header>
+					{{ weapon.name }}<br>
+					<small>{{ weapon.category }}</small>
+				</ion-card-header>
+			</ion-card>
+		</ng-container>
+
+		<ng-container *ngSwitchCase="'secondary'">
+			<ion-card *ngFor="let weapon of weapons.secondary">
+				<ion-card-header>
+					{{ weapon.name }}<br>
+					<small>{{ weapon.category }}</small>
+				</ion-card-header>
+			</ion-card>
+		</ng-container>
+
+		<ng-container *ngSwitchCase="'melee'">
+			<ion-card *ngFor="let weapon of weapons.melee">
+				<ion-card-header>
+					{{ weapon.name }}<br>
+					<small>{{ weapon.category }}</small>
+				</ion-card-header>
+			</ion-card>
+		</ng-container>
+	</ng-container>
+</ion-content>

@@ -1,0 +1,22 @@
+<ion-header>
+	<ion-navbar color="primary">
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Loadouts</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-searchbar (ionInput)="doFilter($event)"></ion-searchbar>
+	<ion-card>
+		<ion-item-group *ngFor="let merc of mercs">
+			<ion-item-divider color="light">{{ merc.name }}</ion-item-divider>
+			<ng-container *ngFor="let loadout of loadouts;">
+				<button ion-item *ngIf="merc.id == loadout.merc_id" (click)="showDetail(loadout)">
+					{{ loadout.code }} {{ loadout.name }} <sup>{{ loadout.edition }}</sup>
+					<ion-icon name="arrow-forward" item-end></ion-icon>
+				</button>
+			</ng-container>
+		</ion-item-group>
+	</ion-card>
+</ion-content>

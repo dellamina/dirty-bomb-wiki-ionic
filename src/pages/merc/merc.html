@@ -1,0 +1,20 @@
+<ion-header>
+	<ion-navbar color="primary">
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>{{ merc.name }}</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-tabs selectedIndex="0" color="dark">
+		<ion-tab tabIcon="stats" tabTitle="Stats" [root]="tabStats" [rootParams]="merc"></ion-tab>
+		<ng-container *ngIf="!rip">
+			<ion-tab tabIcon="filing" tabTitle="Loadouts" [root]="tabLoadouts" [rootParams]="merc"></ion-tab>
+			<ion-tab tabIcon="flame" tabTitle="Weapons" [root]="tabWeapons" [rootParams]="merc"></ion-tab>
+		</ng-container>
+		<ng-container *ngIf="rip">
+			<ion-tab tabIcon="filing" tabTitle="Loadouts" [root]="tabRip" [rootParams]="merc" tabBadge="RIP"></ion-tab>
+		</ng-container>
+	</ion-tabs>
+</ion-content>

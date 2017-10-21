@@ -1,0 +1,22 @@
+<ion-header>
+	<ion-navbar color="primary">
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Resources</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-card *ngFor="let resource of resources">
+		<ion-card-content>
+			<h2>{{ resource.name }} <small *ngIf="resource.author" class="pull-right">by {{ resource.author }}</small></h2>
+			<p color="dark">{{ resource.description }}</p>
+			<button ion-button outline small block color="dark" (click)="openUrl(resource.url)">Open</button>
+		</ion-card-content>
+	</ion-card>
+</ion-content>
+<ion-footer>
+	<ion-toolbar padding>
+		You want your <i>incredible</i> resource to be included in that list? Just contact me ;)
+	</ion-toolbar>
+</ion-footer>

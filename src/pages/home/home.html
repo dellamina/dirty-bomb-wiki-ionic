@@ -1,0 +1,22 @@
+<ion-header>
+	<ion-navbar color="primary">
+		<button ion-button menuToggle>
+		<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Dirty Bomb Wiki</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<img-loader useImg src="img/backgrounds/side-menu.jpg"></img-loader>
+	<ion-card padding>
+		<h2>You best reference for Dirty Bomb related data</h2>
+		<ion-list>
+			<ng-container *ngFor="let p of pages">
+				<button menuClose ion-item *ngIf="p.title != 'Home'" (click)="openPage(p)">
+					{{ p.title }}
+					<ion-icon name="arrow-forward" item-end></ion-icon>
+				</button>
+			</ng-container>
+		</ion-list>
+	</ion-card>
+</ion-content>
