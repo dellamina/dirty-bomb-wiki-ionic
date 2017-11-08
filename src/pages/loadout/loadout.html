@@ -3,35 +3,52 @@
 		<button ion-button menuToggle>
 			<ion-icon name="menu"></ion-icon>
 		</button>
-		<ion-title>{{ loadout.code }} {{ loadout.name }}</ion-title>
+		<ion-title>{{ loadout.code }} {{ loadout.name }} <small>{{ loadout.edition }}</small></ion-title>
 	</ion-navbar>
 </ion-header>
 <ion-content>
-	<ion-card text-center>
+	<!--<ion-card text-center>
 		<ion-card-header>
 			<h1>{{ loadout.code }} {{ loadout.name }}<br><small>{{ loadout.edition }}</small></h1>
 		</ion-card-header>
-		<ion-card-content>
-			<ion-grid>
+		<ion-card-content>-->
+			<ion-grid text-center>
 				<ion-row>
-					<ion-col>{{ loadout.primary.name }}</ion-col>
-					<ion-col>{{ loadout.secondary.name }}</ion-col>
-					<ion-col>{{ loadout.melee.name }}</ion-col>
+					<ion-col col-12>
+						<ion-avatar item-start class="avatar">
+							<img-loader useImg src="img/weapons/{{ loadout.primary.code }}.png"></img-loader>
+						</ion-avatar>
+						<span class="avatar description">{{ loadout.primary.name }}</span>
+					</ion-col>
 				</ion-row>
 				<ion-row>
-					<ion-col>
+					<ion-col col-6>
+						<ion-avatar item-start class="avatar">
+							<img-loader useImg src="img/weapons/{{ loadout.secondary.code }}.png"></img-loader>
+						</ion-avatar>
+						<span class="avatar description">{{ loadout.secondary.name }}</span>
+					</ion-col>
+					<ion-col col-6>
+						<ion-avatar item-start class="avatar">
+							<img-loader useImg src="img/weapons/{{ loadout.melee.code }}.png"></img-loader>
+						</ion-avatar>
+						<span class="avatar description">{{ loadout.melee.name }}</span>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-4>
 						<ion-avatar item-start tooltip="{{ loadout.perk1.description }}" class="avatar perks">
 							<img-loader useImg src="img/perks/{{ imageUrl( loadout.perk1.name ) }}.png"></img-loader>
 						</ion-avatar>
 						<span class="avatar description">{{ loadout.perk1.name }}</span>
 					</ion-col>
-					<ion-col>
+					<ion-col col-4>
 						<ion-avatar item-start tooltip="{{ loadout.perk2.description }}" class="avatar perks">
 							<img-loader useImg src="img/perks/{{ imageUrl( loadout.perk2.name ) }}.png"></img-loader>
 						</ion-avatar>
 						<span class="avatar description">{{ loadout.perk2.name }}</span>
 					</ion-col>
-					<ion-col>
+					<ion-col col-4>
 						<ion-avatar item-start tooltip="{{ loadout.perk3.description }}" class="avatar perks">
 							<img-loader useImg src="img/perks/{{ imageUrl( loadout.perk3.name ) }}.png"></img-loader>
 						</ion-avatar>
@@ -39,6 +56,6 @@
 					</ion-col>
 				</ion-row>
 			</ion-grid>
-		</ion-card-content>
-	</ion-card>
+		<!--</ion-card-content>
+	</ion-card>-->
 </ion-content>

@@ -5,7 +5,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { NewsPage } from '../pages/news/news';
 import { ResourcesPage } from '../pages/resources/resources';
 import { MercsPage } from '../pages/mercs/mercs';
 import { MercPage } from '../pages/merc/merc';
@@ -17,7 +16,6 @@ import { PerksPage } from '../pages/perks/perks';
 import { LoadoutsPage } from '../pages/loadouts/loadouts';
 import { LoadoutPage } from '../pages/loadout/loadout';
 import { RanksPage } from '../pages/ranks/ranks';
-import { RipPage } from '../pages/rip/rip';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -33,7 +31,6 @@ import { CommonProvider } from '../providers/common/common';
 	declarations: [
 		MyApp,
 		HomePage,
-		NewsPage,
 		ResourcesPage,
 		MercsPage,
 		MercPage,
@@ -45,7 +42,6 @@ import { CommonProvider } from '../providers/common/common';
 		LoadoutsPage,
 		LoadoutPage,
 		RanksPage,
-		RipPage,
 	],
 	imports: [
 		BrowserModule,
@@ -61,7 +57,6 @@ import { CommonProvider } from '../providers/common/common';
 	entryComponents: [
 		MyApp,
 		HomePage,
-		NewsPage,
 		ResourcesPage,
 		MercsPage,
 		MercPage,
@@ -73,7 +68,6 @@ import { CommonProvider } from '../providers/common/common';
 		LoadoutsPage,
 		LoadoutPage,
 		RanksPage,
-		RipPage,
 	],
 	providers: [
 		StatusBar,

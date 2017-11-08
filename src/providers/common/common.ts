@@ -13,8 +13,8 @@ export class CommonProvider {
 	private weapons: Array<any> = [];
 	private resources: Array<any> = [];
 	private ranks: Array<any> = [];
-	private news: Array<any> = [];
-	private rip: any = {};
+	/*private news: Array<any> = [];*/
+	/*private videos: Array<any> = [];*/
 
 	constructor(public http: HttpClient) { }
 
@@ -166,22 +166,13 @@ export class CommonProvider {
 		return this.ranks;
 	}
 
-	getNews() {
+	/*getNews() {
 		return this.news;
-	}
-
-	getRip() {
-		return this.rip;
-	}
-
-	loadRip() {
-		return this.http.get(`https://dirty-bomb-wiki.firebaseio.com/rip.json`)
-			.map((res: any) => res)
-			.catch(this.handleError);
-	}
+	}*/
 
 	loadData() {
-		return this.http.get(`https://dirty-bomb-wiki.firebaseio.com/.json`)
+		return this.http.get(`json/data.json`)
+		//return this.http.get(`https://dirty-bomb-wiki.firebaseio.com/.json`)
 			.map((res: any) => res)
 			.catch(this.handleError);
 	}
@@ -193,8 +184,23 @@ export class CommonProvider {
 		this.weapons = data.weapons;
 		this.resources = data.resources;
 		this.ranks = data.ranks;
-		this.news = data.news;
-		this.rip = data.rip;
+		//this.news = data.news;
+	}
+
+	private YOUTUBE_KEY = "AIzaSyAA65r-A0H-Mt2fAx5mBzyi58U1kRQKpQU";
+	private DIRTYBOMB_CHANNEL = "UCZWDpZOZHK3KsSTfyMPJOSQ";
+
+	getVideos() {
+		return this.http.get(`https://www.googleapis.com/youtube/v3/search?key=${this.YOUTUBE_KEY}&channelId=${this.DIRTYBOMB_CHANNEL}&part=snippet,id&order=date&maxResults=20`)
+			.map((res: any) => res)
+			.catch(this.handleError);
+		/*
+		https://www.googleapis.com/youtube/v3/search?
+		key=AIzaSyAA65r-A0H-Mt2fAx5mBzyi58U1kRQKpQU
+		&channelId=UCZWDpZOZHK3KsSTfyMPJOSQ
+		&part=snippet,id
+		&order=date&maxResults=20
+		 */
 	}
 
 	handleError(error: any) {

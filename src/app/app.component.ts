@@ -4,14 +4,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { NewsPage } from '../pages/news/news';
 import { ResourcesPage } from '../pages/resources/resources';
 import { MercsPage } from '../pages/mercs/mercs';
 import { WeaponsPage } from '../pages/weapons/weapons';
 import { PerksPage } from '../pages/perks/perks';
 import { LoadoutsPage } from '../pages/loadouts/loadouts';
 import { RanksPage } from '../pages/ranks/ranks';
-import { RipPage } from '../pages/rip/rip';
 
 import { CommonProvider } from '../providers/common/common';
 
@@ -31,6 +29,7 @@ export class MyApp {
 			{ title: 'Home', component: HomePage },
 			{ title: 'Mercs', component: MercsPage },
 			{ title: 'Weapons', component: WeaponsPage },
+			/*{ title: 'Loadouts', component: LoadoutsPage },*/
 			{ title: 'Perks', component: PerksPage },
 			{ title: 'Ranks', component: RanksPage },
 			{ title: 'Resources', component: ResourcesPage }

@@ -8,28 +8,30 @@
 
 		<ng-container *ngSwitchCase="'primary'">
 			<ion-card *ngFor="let weapon of weapons.primary">
-				<ion-card-header>
+				<ion-item text-center>
+					<img-loader useImg src="img/weapons/{{ weapon.code }}.png"></img-loader>
 					{{ weapon.name }}<br>
 					<small>{{ weapon.category }}</small>
-				</ion-card-header>
+				</ion-item>
 			</ion-card>
 		</ng-container>
 
 		<ng-container *ngSwitchCase="'secondary'">
 			<ion-card *ngFor="let weapon of weapons.secondary">
-				<ion-card-header>
+				<ion-item text-center>
+					<img-loader useImg src="img/weapons/{{ weapon.code }}.png"></img-loader>
 					{{ weapon.name }}<br>
 					<small>{{ weapon.category }}</small>
-				</ion-card-header>
+				</ion-item>
 			</ion-card>
 		</ng-container>
 
 		<ng-container *ngSwitchCase="'melee'">
 			<ion-card *ngFor="let weapon of weapons.melee">
-				<ion-card-header>
+				<ion-item text-center>
+					<img-loader useImg src="img/weapons/{{ weapon.code }}.png"></img-loader>
 					{{ weapon.name }}<br>
-					<small>{{ weapon.category }}</small>
-				</ion-card-header>
+				</ion-item>
 			</ion-card>
 		</ng-container>
 	</ng-container>

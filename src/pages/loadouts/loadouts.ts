@@ -10,6 +10,8 @@ import { LoadoutPage } from '../loadout/loadout';
 export class LoadoutsPage {
 
 	loadouts: Array<any> = [];
+	editions: Array<any> = [];
+	edition = 'gen2';
 	mercs: Array<any> = [];
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private commonProvider: CommonProvider) {
@@ -21,10 +23,17 @@ export class LoadoutsPage {
 	initializeData() {
 		let loadouts = this.commonProvider.getLoadouts();
 		let mercs = this.commonProvider.getMercs();
+		let editions = [];
 		loadouts.sort((x, y) => 0 - (x.code > y.code ? -1 : 1));
+		loadouts.forEach(function(loadout) {
+			if( editions[loadout.edition] != undefined ) {
+				editions.push( loadout.edition );
+			}
+		});
 		mercs.sort((x, y) => 0 - (x.name > y.name ? -1 : 1));
 		this.loadouts = loadouts;
 		this.mercs = mercs;
+		this.editions = editions;
 	}
 
 	doFilter(ev: any) {
@@ -39,6 +48,10 @@ export class LoadoutsPage {
 
 	showDetail(loadout: any) {
 		this.navCtrl.push(LoadoutPage, { loadout: loadout });
+	}
+
+	editionName(edition: string) {
+		return 'Generation ' + edition.slice(-1);
 	}
 
 }

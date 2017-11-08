@@ -28,9 +28,21 @@ html .pointer {
 	margin-bottom: -5px;
 }
 .avatar.perks {
-	background: grey;
-	padding: 4px;
+	background: #000000;
+	padding: 2px;
+	text-align: center;
+}
+ion-avatar.avatar img {
+	border-radius: 0px;
+	margin: 0 auto;
 }
 .avatar.description {
-	font-size: 16px;
+	font-size: 1.4 rem;
+}
+.avatar.ability {
+
+}
+ion-app.md [margin-horizontal].avatar {
+	margin-left: 8px;
+	margin-right: 8px;
 }

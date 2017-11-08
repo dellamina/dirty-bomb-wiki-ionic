@@ -10,7 +10,7 @@ export class MercTabLoadoutsPage {
 
 	merc: any = {};
 	loadouts: Array<any> = [];
-	editions: Array<any> = ['gen2', 'gen1'];
+	editions: Array<any> = [];
 	edition = 'gen2';
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private commonProvider: CommonProvider) {
@@ -25,12 +25,24 @@ export class MercTabLoadoutsPage {
 			this.merc = merc;
 		}
 		let loadouts = this.commonProvider.getLoadouts(this.merc.id);
+		let editions = [];
 		loadouts.sort((x, y) => 0 - (x.code > y.code ? -1 : 1));
+		loadouts.forEach(function(loadout) {
+			if(editions.indexOf(loadout.edition) == -1) {
+				editions.push(loadout.edition);
+			}
+		});
+		console.log( editions );
 		this.loadouts = loadouts;
+		this.editions = editions;
 	}
 
 	imageUrl(name: string) {
 		return name.split(' ').join('_');
+	}
+
+	editionName(edition: string) {
+		return 'Generation ' + edition.slice(-1);
 	}
 
 }

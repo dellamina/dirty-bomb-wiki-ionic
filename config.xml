@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="it.mattia.dellamina.dirtybombwiki" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Dirty Bomb Wiki</name>
-    <description>Dirty Bomb mercs, weapons, loadouts reference</description>
+<widget id="it.mattiadellamina.dbwiki" version="1.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>DBWiki</name>
+    <description>DB mercs, weapons, loadouts reference app</description>
     <author email="mattia.dellamina@gmail.com" href="http://mattiadellamina.it/">Mattia Della Mina</author>
     <content src="index.html" />
     <access origin="*.firebaseio.com" />

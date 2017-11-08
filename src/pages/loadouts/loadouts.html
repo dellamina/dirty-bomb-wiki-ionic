@@ -8,15 +8,28 @@
 </ion-header>
 <ion-content>
 	<ion-searchbar (ionInput)="doFilter($event)"></ion-searchbar>
-	<ion-card>
-		<ion-item-group *ngFor="let merc of mercs">
-			<ion-item-divider color="light">{{ merc.name }}</ion-item-divider>
-			<ng-container *ngFor="let loadout of loadouts;">
-				<button ion-item *ngIf="merc.id == loadout.merc_id" (click)="showDetail(loadout)">
-					{{ loadout.code }} {{ loadout.name }} <sup>{{ loadout.edition }}</sup>
-					<ion-icon name="arrow-forward" item-end></ion-icon>
-				</button>
+	<ion-segment [(ngModel)]="edition" color="dark" style="padding-top: 4px;">
+		<ng-container *ngFor="let edition of editions">
+			<ion-segment-button [value]="edition">
+				{{ editionName( edition ) }}
+			</ion-segment-button>
+		</ng-container>
+	</ion-segment>
+	<ng-container [ngSwitch]="edition">
+		<ng-container *ngFor="let edition of editions">
+			<ng-container *ngSwitchCase="edition">
+				<ion-card>
+					<ion-item-group *ngFor="let merc of mercs">
+						<ion-item-divider color="light">{{ merc.name }}</ion-item-divider>
+						<ng-container *ngFor="let loadout of loadouts">
+							<button ion-item *ngIf="loadout.edition == edition && merc.id == loadout.merc_id" (click)="showDetail(loadout)">
+								{{ loadout.code }} {{ loadout.name }}
+								<ion-icon name="arrow-forward" item-end></ion-icon>
+							</button>
+						</ng-container>
+					</ion-item-group>
+				</ion-card>
 			</ng-container>
-		</ion-item-group>
-	</ion-card>
+		</ng-container>
+	</ng-container>
 </ion-content>

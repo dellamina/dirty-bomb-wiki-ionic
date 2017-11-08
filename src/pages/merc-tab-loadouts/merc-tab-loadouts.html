@@ -1,42 +1,56 @@
 <ion-content>
 	<ion-segment [(ngModel)]="edition" color="dark" style="padding-top: 4px;">
-		<ion-segment-button value="gen2">
-			Generation 2
-		</ion-segment-button>
-		<ion-segment-button value="gen1">
-			Generation 1
-		</ion-segment-button>
+		<ng-container *ngFor="let edition of editions">
+			<ion-segment-button [value]="edition">
+				{{ editionName( edition ) }}
+			</ion-segment-button>
+		</ng-container>
 	</ion-segment>
 	<ng-container [ngSwitch]="edition">
 		<ng-container *ngFor="let edition of editions">
 			<ng-container *ngSwitchCase="edition">
 				<ng-container *ngFor="let loadout of loadouts">
 					<ion-card text-center *ngIf="loadout.edition == edition">
-						<ion-card-header>
-							<h1>{{ loadout.code }} {{ loadout.name }}</h1>
-						</ion-card-header>
+						<ion-item-divider text-wrap color="light">{{ loadout.code }} {{ loadout.name }}</ion-item-divider>
 						<ion-card-content>
 							<ion-grid>
 								<ion-row>
-									<ion-col>{{ loadout.primary.name }}</ion-col>
-									<ion-col>{{ loadout.secondary.name }}</ion-col>
-									<ion-col>{{ loadout.melee.name }}</ion-col>
+									<ion-col col-12>
+										<ion-avatar item-start class="avatar">
+											<img-loader useImg src="img/weapons/{{ loadout.primary.code }}.png"></img-loader>
+										</ion-avatar>
+										<span class="avatar description">{{ loadout.primary.name }}</span>
+									</ion-col>
 								</ion-row>
 								<ion-row>
-									<ion-col>
-										<ion-avatar item-start tooltip="{{ loadout.perk1.description }}" class="avatar perks">
+									<ion-col col-6>
+										<ion-avatar item-start class="avatar">
+											<img-loader useImg src="img/weapons/{{ loadout.secondary.code }}.png"></img-loader>
+										</ion-avatar>
+										<span class="avatar description">{{ loadout.secondary.name }}</span>
+									</ion-col>
+									<ion-col col-6>
+										<ion-avatar item-start class="avatar">
+											<img-loader useImg src="img/weapons/{{ loadout.melee.code }}.png"></img-loader>
+										</ion-avatar>
+										<span class="avatar description">{{ loadout.melee.name }}</span>
+									</ion-col>
+								</ion-row>
+								<ion-row>
+									<ion-col col-4>
+										<ion-avatar margin-horizontal item-start tooltip="{{ loadout.perk1.description }}" class="avatar perks">
 											<img-loader useImg src="img/perks/{{ imageUrl( loadout.perk1.name ) }}.png"></img-loader>
 										</ion-avatar>
 										<span class="avatar description">{{ loadout.perk1.name }}</span>
 									</ion-col>
-									<ion-col>
-										<ion-avatar item-start tooltip="{{ loadout.perk2.description }}" class="avatar perks">
+									<ion-col col-4>
+										<ion-avatar margin-horizontal item-start tooltip="{{ loadout.perk2.description }}" class="avatar perks">
 											<img-loader useImg src="img/perks/{{ imageUrl( loadout.perk2.name ) }}.png"></img-loader>
 										</ion-avatar>
 										<span class="avatar description">{{ loadout.perk2.name }}</span>
 									</ion-col>
-									<ion-col>
-										<ion-avatar item-start tooltip="{{ loadout.perk3.description }}" class="avatar perks">
+									<ion-col col-4>
+										<ion-avatar margin-horizontal item-start tooltip="{{ loadout.perk3.description }}" class="avatar perks">
 											<img-loader useImg src="img/perks/{{ imageUrl( loadout.perk3.name ) }}.png"></img-loader>
 										</ion-avatar>
 										<span class="avatar description">{{ loadout.perk3.name }}</span>
@@ -48,5 +62,5 @@
 				</ng-container>
 			</ng-container>
 		</ng-container>
-	</ng-container>-->
+	</ng-container>
 </ion-content>

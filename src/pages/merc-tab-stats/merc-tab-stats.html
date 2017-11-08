@@ -1,28 +1,44 @@
 <ion-content>
-	<div style="height: 60%; overflow: hidden;">
-		<img-loader useImg class="merc-img" src="img/mercs/{{ merc.code }}.jpg"></img-loader>
-	</div>
-	<ion-list>
+	<ion-card>
+		<ion-item-divider color="light">General</ion-item-divider>
 		<ion-item>
 			<ion-icon name='options' item-start></ion-icon>
 			Category:
-			<ion-note item-end>
+			<span class="pull-right">
 				{{ merc.category }}
-			</ion-note>
+			</span>
+		</ion-item>
+		<ion-item>
+			<ion-icon name='cash' item-start></ion-icon>
+			Price:
+			<span class="pull-right">
+				{{ merc.price > 0 ? merc.price + 'C' : 'Free' }}
+			</span>
 		</ion-item>
 		<ion-item>
 			<ion-icon name='medkit' item-start></ion-icon>
 			Health:
-			<ion-note item-end>
-				{{ merc.health }}
-			</ion-note>
+			<span class="pull-right">
+				{{ merc.health }}HP
+			</span>
 		</ion-item>
 		<ion-item>
 			<ion-icon name='speedometer' item-start></ion-icon>
 			Speed:
-			<ion-note item-end>
+			<span class="pull-right">
 				{{ merc.speed }}
-			</ion-note>
+			</span>
 		</ion-item>
-	</ion-list>
+	</ion-card>
+	<ng-container *ngIf="merc.abilities != undefined">
+		<ion-card>
+			<ion-item-divider color="light">Abilities</ion-item-divider>
+			<ion-item *ngFor="let ability of merc.abilities">
+				<ion-avatar item-start class="avatar ability">
+					<img-loader *ngIf="ability.code != undefined" useImg src="img/abilities/{{ ability.code }}_icon.png"></img-loader>
+				</ion-avatar>
+				{{ ability.name }}
+			</ion-item>
+		</ion-card>
+	</ng-container>
 </ion-content>
