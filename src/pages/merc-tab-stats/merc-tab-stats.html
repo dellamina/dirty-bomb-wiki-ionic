@@ -29,6 +29,13 @@
 				{{ merc.speed }}
 			</span>
 		</ion-item>
+		<ion-item>
+			<ion-icon name='bonfire' item-start></ion-icon>
+			Arm/Defuse:
+			<span class="pull-right">
+				{{ merc.category == 'Engineer' ? '3/4 sec' : '5/8 sec' }}
+			</span>
+		</ion-item>
 	</ion-card>
 	<ng-container *ngIf="merc.abilities != undefined">
 		<ion-card>

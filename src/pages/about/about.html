@@ -1,0 +1,76 @@
+<ion-header>
+	<ion-navbar color="primary">
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>About this App</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-card>
+		<ion-list>
+			<ion-item>
+				<ion-icon name='code' item-start></ion-icon>
+				Version number<br>
+				<small>1.0.5</small>
+			</ion-item>
+			<ion-item (click)="openUrl('mailto:mattia.dellamina@gmail.com?subject=DBWiki')">
+				<ion-icon name='mail' item-start></ion-icon>
+				Contact developer<br>
+				<small>Questions, feature requests, other comments, ...</small>
+			</ion-item>
+			<ion-item (click)="openUrl('https://play.google.com/store/apps/details?id=it.mattiadellamina.dbwiki')">
+				<ion-icon name='star' item-start></ion-icon>
+				View in Play Store<br>
+				<small>Thank you for your ratings and reviews</small>
+			</ion-item>
+			<ion-item (click)="openUrl('https://github.com/dellamina/dirty-bomb-wiki-ionic')">
+				<ion-icon name='logo-github' item-start></ion-icon>
+				View on Github<br>
+				<small>That's right, this app is open-source</small>
+			</ion-item>
+		</ion-list>
+	</ion-card>
+	<ion-card>
+		<!--span class="pointer" (click)="toggle()">
+			<ion-card-header>
+				Changelog: <ion-icon class="pull-right" [name]="isVisible ? 'remove' : 'add'"></ion-icon>
+			</ion-card-header>
+		</span-->
+		<ion-card-header>
+			Changelog:
+		</ion-card-header>
+		<ion-card-content>
+			<h2>1.0.5</h2>
+			<ul>
+				<li>Added About this App section</li>
+				<li>Added time to arm/defuse</li>
+			</ul>
+			<h2>1.0.4</h2>
+			<ul>
+				<li>Added double-back to exit to prevent unintentional exit from the app</li>
+				<li>Fixed typo in Selbstadt .40 handgun</li>
+				<li>Updated some perk description with the new values</li>
+			</ul>
+			<br>
+			<h2>1.0.3</h2>
+			<ul>
+				<li>Enabled and updated merc loadouts tab and merc weapons tab</li>
+				<li>All mercs loadouts are now available</li>
+			</ul>
+			<h2>1.0.2</h2>
+			<ul>
+				<li>More improvements on merc's stats page</li>
+				<li>Added loadouts for half the mercs</li>
+			</ul>
+			<h2>1.0.1</h2>
+			<ul>
+				<li>Improved merc's stats page</li>
+			</ul>
+			<h2>1.0.0</h2>
+			<ul>
+				<li>First release with basic features, more to come</li>
+			</ul>
+		</ion-card-content>
+	</ion-card>
+</ion-content>

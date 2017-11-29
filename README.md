@@ -1,6 +1,6 @@
-DBWiki is a small Andoid app I made in my free time
+## DBWiki is a small Andoid app I made in my free time
 
-Main features are:
+### Main features are:
 
 * merc's stats, loadouts, available weapons
 * weapons list divided by categories
@@ -10,7 +10,12 @@ Main features are:
 
 Its out on the [Play Store](https://play.google.com/store/apps/details?id=it.mattiadellamina.dbwiki) so try it out and give me some feedback ;)
 
-CHANGELOG
+### CHANGELOG
+
+Version 1.0.5:
+
+* Added About this App section
+* Added time to arm/defuse
 
 Version 1.0.4:
 
@@ -25,12 +30,12 @@ Varsion 1.0.3:
 
 Version 1.0.2:
 
-* More mproved merc stats page
+* More improvements on merc's stats page
 * Added loadouts for half the mercs
 
 Version 1.0.1:
 
-* Improved merc stats page
+* Improved merc's stats page
 
 Version 1.0.0:
 
