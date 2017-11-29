@@ -1,26 +1,37 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+DBWiki is a small Andoid app I made in my free time
 
-## How to use this template
+Main features are:
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+* merc's stats, loadouts, available weapons
+* weapons list divided by categories
+* perks list with relative description
+* ranks quick reference
+* resources, a small list with usefull content/spreedsheets of the community
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
+Its out on the [Play Store](https://play.google.com/store/apps/details?id=it.mattiadellamina.dbwiki) so try it out and give me some feedback ;)
 
-### With the Ionic CLI:
+CHANGELOG
 
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+Version 1.0.4:
 
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start mySideMenu sidemenu
-```
+* Added double-back to exit to prevent unintentional exit from the app
+* Fixed typo in Selbstadt .40 handgun
+* Updated some perk description with the new values
 
-Then, to run it, cd into `mySideMenu` and run:
+Varsion 1.0.3:
 
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
-```
+* Enabled and updated merc loadouts tab and merc weapons tab
+* All mercs loadouts are now available
 
-Substitute ios for android if not on a Mac.
+Version 1.0.2:
 
+* More mproved merc stats page
+* Added loadouts for half the mercs
+
+Version 1.0.1:
+
+* Improved merc stats page
+
+Version 1.0.0:
+
+* First release with basic features, more to come
