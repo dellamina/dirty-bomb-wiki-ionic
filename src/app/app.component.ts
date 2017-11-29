@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, MenuController, ToastController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -10,6 +10,7 @@ import { WeaponsPage } from '../pages/weapons/weapons';
 import { PerksPage } from '../pages/perks/perks';
 import { LoadoutsPage } from '../pages/loadouts/loadouts';
 import { RanksPage } from '../pages/ranks/ranks';
+import { AboutPage } from '../pages/about/about';
 
 import { CommonProvider } from '../providers/common/common';
 
@@ -22,7 +23,12 @@ export class MyApp {
 	rootPage: any;
 	pages: Array<any>;
 
-	constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private commonProvider: CommonProvider) {
+	closeDelay = 2000;
+	spamDelay = 500;
+	lastBack = Date.now();
+	allowClose = false;
+
+	constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private commonProvider: CommonProvider, public menu: MenuController, private toastCtrl: ToastController) {
 		this.initializeApp();
 
 		this.pages = [
@@ -40,11 +46,37 @@ export class MyApp {
 	initializeApp() {
 
 		this.platform.ready().then(() => {
-			
+
 			this.statusBar.styleDefault();
 			if (this.platform.is('android')) {
 				this.statusBar.backgroundColorByHexString("#ffc814");
 			}
+
+			this.platform.registerBackButtonAction(() => {
+
+				if(this.menu.isOpen()){
+					this.menu.close();
+				}
+				else if(this.nav.canGoBack()){
+					this.nav.pop();
+				}
+				else if(Date.now() - this.lastBack > this.spamDelay && Date.now() - this.lastBack < this.closeDelay && !this.allowClose) {
+					this.allowClose = true;
+					let toast = this.toastCtrl.create({
+						message: "Press back one more time to exit",
+						duration: this.closeDelay,
+						dismissOnPageChange: true
+					});
+					toast.onDidDismiss(() => {
+						this.allowClose = false;
+					});
+					toast.present();
+				}
+				else if(Date.now() - this.lastBack < this.closeDelay && this.allowClose) {
+					this.platform.exitApp();
+				}
+				this.lastBack = Date.now();
+			});
 
 			this.nav.setRoot(HomePage, {pages: this.pages});
 
@@ -60,6 +92,11 @@ export class MyApp {
 
 	openPage(page) {
 		this.nav.setRoot(page.component, {pages: this.pages});
+	}
+
+	openAbout() {
+		this.menu.close();
+		this.nav.push(AboutPage);
 	}
 
 	openUrl(url: string) {

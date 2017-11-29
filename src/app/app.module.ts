@@ -16,6 +16,7 @@ import { PerksPage } from '../pages/perks/perks';
 import { LoadoutsPage } from '../pages/loadouts/loadouts';
 import { LoadoutPage } from '../pages/loadout/loadout';
 import { RanksPage } from '../pages/ranks/ranks';
+import { AboutPage } from '../pages/about/about';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -42,6 +43,7 @@ import { CommonProvider } from '../providers/common/common';
 		LoadoutsPage,
 		LoadoutPage,
 		RanksPage,
+		AboutPage,
 	],
 	imports: [
 		BrowserModule,
@@ -68,6 +70,7 @@ import { CommonProvider } from '../providers/common/common';
 		LoadoutsPage,
 		LoadoutPage,
 		RanksPage,
+		AboutPage,
 	],
 	providers: [
 		StatusBar,
